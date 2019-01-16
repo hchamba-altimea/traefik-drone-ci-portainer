@@ -1,0 +1,1 @@
+# traefik-drone-ci-portainer
