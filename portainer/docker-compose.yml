@@ -7,7 +7,7 @@ services:
     restart: always
     container_name: portainer
     networks:
-      - treafik
+      - traefik
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer_data:/data
@@ -19,7 +19,7 @@ services:
       - traefik.port=9000
 
 networks:
-  treafik:
+  traefik:
     external: true
 
 volumes:
