@@ -23,7 +23,7 @@ services:
       - traefik.backend=drone
       - traefik.docker.network=traefik
       - traefik.enable=true
-      - traefik.frontend.rule=PathPrefixStrip:/drone
+      - traefik.frontend.rule=Host:${DRONE_SERVER_HOST}
       - traefik.port=80
 
 networks:
