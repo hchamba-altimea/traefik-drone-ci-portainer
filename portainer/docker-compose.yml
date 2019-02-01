@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  portainer:
+    image: portainer/portainer
+    command: -H unix:///var/run/docker.sock
+    restart: always
+    container_name: portainer
+    networks:
+      - treafik
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+    labels:
+      - traefik.backend=portainer
+      - traefik.docker.network=traefik
+      - traefik.enable=true
+      - traefik.frontend.rule=PathPrefixStrip:/portainer
+      - traefik.port=9000
+
+networks:
+  treafik:
+    external: true
+
+volumes:
+  portainer_data:
