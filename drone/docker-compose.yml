@@ -19,6 +19,8 @@ services:
       - DRONE_SERVER_HOST=${DRONE_SERVER_HOST}
       - DRONE_SERVER_PROTO=${DRONE_SERVER_PROTO}
       - DRONE_TLS_AUTOCERT=true
+      - DRONE_GIT_ALWAYS_AUTH=false
+      - DRONE_USER_CREATE=username:${DRONE_USER_CREATE_USERNAME},admin:true
     labels:
       - traefik.backend=drone
       - traefik.docker.network=traefik
